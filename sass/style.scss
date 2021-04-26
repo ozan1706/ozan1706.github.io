@@ -1,0 +1,573 @@
+/* Font */
+@font-face {
+    font-family: 'montserratbold';
+    src: url('font/montserrat-bold-webfont.woff2') format('woff2'),
+        url('font/montserrat-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'montserratlight';
+    src: url('font/montserrat-light-webfont.woff2') format('woff2'),
+        url('font/montserrat-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Single Day Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Single Day Regular'), url('font/SingleDay-Regular.woff') format('woff');
+}
+
+// Variable
+$primary-color: #0e213e;
+$secondary-color: #448bfd;
+$text: #f0f6ff;
+
+// Manual Default
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $primary-color;
+    color: $text;
+    margin: 0;
+    padding: 0;
+    font-family: "montserratlight", Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+li,
+figure,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+
+ol {
+    margin: 0;
+}
+
+table {
+    border-spacing: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+strong,
+figcaption {
+    font-family: "montserratbold", Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: $text;
+}
+
+// Header
+header {
+    nav {
+        z-index: 9999;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        transition: 0.5s;
+
+        img {
+            width: 75px;
+        }
+
+        li {
+            display: inline-block;
+            margin: 0 2.5em;
+
+            a {
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+
+    .jumbotron {
+        width: 100%;
+        height: 100vh;
+        background-image: url(../img/BTS/profile-kv-alpha.png);
+        background-position: center;
+        background-size: cover;
+
+        .text-jumbotron {
+            font-size: 2em;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h1,
+        p {
+            font-family: 'Single Day Regular', cursive;
+            margin: 0.7em auto;
+        }
+    }
+}
+
+// Main
+main {
+    padding: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    h1 {
+        font-size: 2em
+    }
+
+    h2 {
+        font-size: 1.5em
+    }
+
+    h3 {
+        font-size: 1.17em
+    }
+
+    .content {
+        width: 70%;
+
+        p {
+            margin-top: 1.5em;
+            line-height: 1.5em;
+            text-align: justify;
+        }
+
+        .table-of-content {
+            border: 2px solid #576275;
+            background-color: #1b2432;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 2em;
+
+            h2 {
+                margin-bottom: 1.5em;
+            }
+
+            li {
+                width: fit-content;
+                margin-bottom: 10px;
+
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+        }
+
+        .main-article {
+
+            article,
+            section {
+                padding-top: 47px;
+            }
+
+            #achievement {
+                table {
+                    margin: auto;
+                    margin-top: 1em;
+
+                    th {
+                        background-color: $secondary-color;
+                    }
+
+                    td {
+                        background-color: #2e456b;
+                    }
+
+                    th,
+                    td {
+                        border: 2px solid #f0f6ff;
+                        padding: 1em;
+                        text-align: center;
+                    }
+
+                }
+            }
+
+            #discography {
+                img {
+                    width: 50%;
+                    margin-top: 2em;
+                }
+            }
+
+            #references {
+                h2 {
+                    margin-bottom: 47px;
+                }
+
+
+                li {
+                    margin-bottom: 1.5em;
+                    width: 100%;
+
+                    &:hover {
+                        opacity: 0.7;
+                    }
+
+                    a {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+
+    .member-profile {
+        width: 25%;
+        height: fit-content;
+        position: sticky;
+        top: 50px;
+        transition: 1s;
+
+        img {
+            width: 100%;
+            line-height: 0;
+        }
+
+        h3 {
+            padding: 10px 0;
+            text-align: center;
+        }
+
+
+        .dropdown-member-profile {
+            background-color: #2e456b;
+            transition: 0.5s;
+
+            // Icon Dropdown
+            h3::after {
+                content: "";
+                display: inline-block;
+                border-bottom: 10px solid $text;
+                border-right: 10px solid transparent;
+                border-left: 10px solid transparent;
+                margin-left: 0.5em;
+                transition: 0.5s;
+            }
+
+
+            .icon-dropdown-rotate::after {
+                opacity: 0.5;
+                transform: rotate(180deg);
+            }
+
+
+            &.dropdown {
+                ul {
+                    height: 91%;
+                }
+            }
+
+            ul {
+                transition: .5s;
+                background-color: #2e456b;
+                position: absolute;
+                right: 0;
+                left: 0;
+                height: 0;
+                overflow: hidden;
+                text-align: center;
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+
+                li {
+                    transition: .5s;
+                    cursor: pointer;
+                    margin: 10px 0;
+                    padding: 10px;
+
+                    &:hover {
+                        background-color: #448bfd66;
+                    }
+                }
+            }
+        }
+
+        .member {
+            font-size: 1em;
+            border: 3px solid #576275;
+            background-color: #2e456b;
+
+            figure,
+            h3 {
+                background-color: #1b2432;
+            }
+
+            th,
+            td {
+                padding: 10px 0;
+                text-align: left;
+                border-top: 3px solid #576275;
+
+            }
+
+            table {
+                th {
+                    padding-right: 25px;
+                }
+            }
+        }
+    }
+
+    .my-bio {
+        margin: auto;
+        margin-top: 5em;
+        margin-bottom: 3em;
+        width: 30%;
+        text-align: center;
+        background-color: #2e456b;
+        box-shadow: 0 0 15px 5px #4b699b;
+        border-radius: 10px;
+
+        img {
+            width: 140px;
+            clip-path: circle();
+        }
+
+        blockquote {
+            padding: 1em;
+        }
+    }
+
+}
+
+// Footer 
+footer {
+    background-color: #2e456b;
+
+    p {
+        padding: 15px;
+        text-align: center;
+        background-color: $secondary-color;
+    }
+
+    img {
+        width: 40px;
+    }
+
+    .main-footer {
+        padding: 2em;
+        display: flex;
+        justify-content: space-between;
+
+        .social-media {
+            width: 30%;
+
+
+            ul {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+
+        .suggestion {
+            width: 40%;
+
+            textarea {
+                width: 100%;
+                height: 100px;
+                padding: 12px 20px;
+                box-sizing: border-box;
+                border: 2px solid #576275;
+                border-radius: 5px;
+                resize: none;
+                background-color: #1b2432;
+                color: $text;
+                transition: 0.1s;
+
+                &:focus {
+                    box-shadow: 0 0 6px 1px #4b699b;
+                    outline: none;
+                }
+            }
+
+            button[type=submit] {
+                background-color: $secondary-color;
+                color: $text;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                padding: 1em;
+
+                &:hover {
+                    background-color: #448bfd80;
+                }
+            }
+        }
+    }
+
+}
+
+// Responsive
+// Tablet
+@media screen and (max-width: 768px) {
+    header {
+        nav {
+            ul {
+                display: flex;
+                justify-content: space-around;
+                width: 50%;
+
+                li {
+                    margin: 0;
+                }
+            }
+        }
+
+        .jumbotron {
+            height: 70vh;
+
+            .text-jumbotron {
+                font-size: 1.5em;
+            }
+        }
+    }
+
+    main {
+        flex-direction: column;
+
+        .content,
+        .my-bio {
+            width: 100%;
+        }
+
+        .member-profile {
+            transition: none;
+            order: -1;
+            position: static;
+            width: 50%;
+            margin: auto;
+            margin-bottom: 5em;
+
+            .dropdown-member-profile {
+                &.dropdown {
+                    ul {
+                        height: 100vh;
+                    }
+                }
+
+            }
+
+            ul {
+                margin: 0 auto;
+                width: 46%;
+            }
+        }
+    }
+}
+
+// Handphone
+@media screen and (max-width: 548px) {
+    header {
+        nav {
+            ul {
+                z-index: -1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: fixed;
+                height: 0;
+                top: -30px;
+                transition: 0.5s;
+            }
+
+            .dropdown-navbar {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                top: 46px;
+                height: 30vh;
+                width: 100%;
+                background-color: $secondary-color;
+            }
+
+            .humburger-menu {
+                span {
+                    display: block;
+                    background-color: #f0f6ff;
+                    width: 20px;
+                    height: 3px;
+                    margin-bottom: 3px;
+                }
+            }
+        }
+
+        .jumbotron {
+            height: 60vh;
+
+            .text-jumbotron {
+                font-size: 0.8em;
+            }
+        }
+    }
+
+    main {
+        padding: 1em;
+
+        .member-profile {
+            width: 90%;
+
+            ul {
+                width: 85%;
+            }
+        }
+
+        table {
+            width: 100%;
+        }
+    }
+
+    footer {
+        .main-footer {
+            flex-direction: column;
+            text-align: center;
+
+            .social-media,
+            .suggestion {
+                margin: auto;
+                width: 100%;
+            }
+
+            .social-media {
+                margin-bottom: 3em;
+
+                ul {
+                    justify-content: space-evenly;
+                }
+            }
+        }
+    }
+}
